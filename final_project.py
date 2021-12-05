@@ -13,7 +13,7 @@ import datetime
 
 #drop extra rows where year and month are nan.Convert year and month columns into datetime type.
 
-df = pd.read_csv("/Users/tryfighter/Desktop/math_10/datasets/All_India_Index_july2019_20Aug2020.csv", na_values = " ")
+df = pd.read_csv("All_India_Index_july2019_20Aug2020.csv", na_values = " ")
 df = df.dropna(subset=['Year','Month'])
 df['Year'] = df['Year'].astype(int)
 df = df.applymap(lambda x: 'March' if x == 'Marcrh' else x)
