@@ -9,6 +9,10 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import sklearn
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
 import datetime
 
 #drop extra rows where year and month are nan.Convert year and month columns into datetime type.
@@ -82,13 +86,13 @@ train_size = st.slider(label = "Select percentage of train data, minimum 2%, max
                        min_value = 2, max_value = 90, step = 1)
 
 try:
-    x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y, test_size = (100-train_size)/100, random_state = 48)
-    model = sklearn.linear_model.LinearRegression()
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = (100-train_size)/100, random_state = 48)
+    model = LinearRegression()
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
     
-    score = sklearn.metrics.r2_score(y_test, y_predict)
-    mean_sq_error = sklearn.metrics.mean_squared_error(y_test, y_predict)
+    score = r2_score(y_test, y_predict)
+    mean_sq_error = mean_squared_error(y_test, y_predict)
     root_mean_sq_error = np.sqrt(mean_sq_error)
     
     st.text(f'r2 score is score {score}')
