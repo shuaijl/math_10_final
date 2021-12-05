@@ -35,6 +35,7 @@ cpis = df.columns
 st.title("India Rural Area Food CPI Analysis")
 st.markdown("The dataset I will explore is consumer price index of India from 2013 to 2020.\
 https://www.kaggle.com/satyampd/consumer-price-index-india-inflation-data")
+st.markdown("Github: https://github.com/shuaijl/math_10_final")
 st.markdown('The aim of the study is to predict India rural **_Oils and Fats_** CPI by other CPIs in food sectors.')
 st.header("Compare **_Oils and Fats_** to another CPI")
 
