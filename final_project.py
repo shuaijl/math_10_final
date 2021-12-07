@@ -87,6 +87,7 @@ train_size = st.slider(label = "Select percentage of train data, minimum 2%, max
                        min_value = 2, max_value = 90, step = 1)
 
 try:
+  #From https://www.analyticsvidhya.com/blog/2021/05/multiple-linear-regression-using-python-and-scikit-learn/
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = (100-train_size)/100, random_state = 48)
     model = LinearRegression()
     model.fit(x_train, y_train)
@@ -106,4 +107,7 @@ st.markdown("The model has a high r2 score at any training size. It can indicate
             to predict **_Oils and Fats_**. However, we only use other CPIs to do the prediction.\
             It means other important independent might be missed in the model. We can only have a conclusion\
             that **_Oils and Fats_** has strong linear relationship with other CPIs.")
+
+st.subheader("Reference")
+st.markdown("The idea and code of multiple linear regression are from https://www.analyticsvidhya.com/blog/2021/05/multiple-linear-regression-using-python-and-scikit-learn/")
 
